@@ -111,9 +111,10 @@ OcAbcInitialize (
 
   DEBUG ((
     DEBUG_INFO,
-    "OCABC: RTDFRG %d DEVMMIO %d NOSU %d NOVRWR %d NOSB %d NOHBMAP %d SMSLIDE %d WRUNPROT %d\n",
+    "OCABC: RTDFRG %d DEVMMIO %d DEVSGX %d NOSU %d NOVRWR %d NOSB %d NOHBMAP %d SMSLIDE %d WRUNPROT %d\n",
     Settings->AvoidRuntimeDefrag,
     Settings->DevirtualiseMmio,
+    Settings->DevirtualiseSGX,
     Settings->DisableSingleUser,
     Settings->DisableVariableWrite,
     Settings->ProtectSecureBoot,

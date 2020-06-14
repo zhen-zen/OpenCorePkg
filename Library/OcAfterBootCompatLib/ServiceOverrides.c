@@ -358,12 +358,12 @@ DevirtualiseSGX (
   NumEntries = MemoryMapSize / DescriptorSize;
   PagesSaved = 0;
 
-//  if (!((BOOT_COMPAT_CONTEXT *) Context)->ServiceState.ReportedMmio) {
+  if (!((BOOT_COMPAT_CONTEXT *) Context)->ServiceState.ReportedSGX) {
     DEBUG ((DEBUG_INFO, "OCABC: SGX devirt start\n"));
-//  }
+  }
 
   for (Index = 0; Index < NumEntries; ++Index) {
-    if (Desc->NumberOfPages > 0
+    if (Desc->NumberOfPages > 0x8000
       && Desc->Type == EfiReservedMemoryType
       && (Desc->Attribute & EFI_MEMORY_RUNTIME) == 0) {
 
@@ -376,7 +376,7 @@ DevirtualiseSGX (
 //        }
 //      }
 
-//      if (!((BOOT_COMPAT_CONTEXT *) Context)->ServiceState.ReportedMmio) {
+      if (!((BOOT_COMPAT_CONTEXT *) Context)->ServiceState.ReportedSGX) {
         DEBUG ((
           DEBUG_INFO,
           "OCABC: SGX devirt 0x%Lx (0x%Lx pages, 0x%Lx) skip\n", // %d\n",
@@ -385,7 +385,7 @@ DevirtualiseSGX (
           (UINT64) Desc->Attribute//,
 ///         Skipped
           ));
-//      }
+      }
 
 //      if (!Skipped) {
 //        Desc->Attribute &= ~EFI_MEMORY_RUNTIME;
@@ -396,14 +396,14 @@ DevirtualiseSGX (
     Desc = NEXT_MEMORY_DESCRIPTOR (Desc, DescriptorSize);
   }
 
-//  if (!((BOOT_COMPAT_CONTEXT *) Context)->ServiceState.ReportedMmio) {
+  if (!((BOOT_COMPAT_CONTEXT *) Context)->ServiceState.ReportedSGX) {
     DEBUG ((
       DEBUG_INFO,
       "OCABC: SGX devirt end, saved %Lu KB\n",
       EFI_PAGES_TO_SIZE (PagesSaved) / BASE_1KB
       ));
-//    ((BOOT_COMPAT_CONTEXT *) Context)->ServiceState.ReportedMmio = TRUE;
-//  }
+    ((BOOT_COMPAT_CONTEXT *) Context)->ServiceState.ReportedSGX = TRUE;
+  }
 }
 
 /**

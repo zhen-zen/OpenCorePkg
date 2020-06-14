@@ -226,6 +226,10 @@ typedef struct SERVICES_OVERRIDE_STATE_ {
   ///
   BOOLEAN                       ReportedMmio;
   ///
+  /// TRUE if we are done reporting SGX cleanup.
+  ///
+  BOOLEAN                       ReportedSGX;
+  ///
   /// TRUE if we are waiting for performance memory allocation.
   ///
   BOOLEAN                       AwaitingPerfAlloc;
