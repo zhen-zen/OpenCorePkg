@@ -46,6 +46,11 @@ typedef struct OC_ABC_SETTINGS_ {
   ///
   BOOLEAN  DevirtualiseMmio;
   ///
+  /// Remove runtime flag from SGX reserved areas and prevent virtual address assignment for known
+  /// reserved regions. This may allow SGX enabled in BIOS without reducing available slides.
+  ///
+  BOOLEAN  DevirtualiseSGX;
+  ///
   /// Disable passing -s to operating system through key presses, to simulate T2 Mac behaviour.
   /// Ref: https://support.apple.com/HT201573
   ///
@@ -118,6 +123,10 @@ typedef struct OC_ABC_SETTINGS_ {
   /// Size of list of physical addresses to not be devirtualised by DevirtualiseMmio.
   ///
   UINTN                MmioWhitelistSize;
+  ///
+  /// Physical addresses to be devirtualised by DevirtualisecSGX.
+  ///
+///  EFI_PHYSICAL_ADDRESS SGXaddr;
   ///
   /// List of NULL-terminated handlers for TPL_APPLICATION execution within ExitBootServices.
   ///
