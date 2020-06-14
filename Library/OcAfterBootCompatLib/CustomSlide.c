@@ -85,12 +85,12 @@ GenerateSlideValue (
   //
   // Handle 0 slide case.
   //
-  if (SlideSupport->ValidSlideCount == 1) {
+  if (SlideSupport->ValidSlideCount < 0x20) {
     return SlideSupport->ValidSlides[0];
   }
 
   do {
-    DivU64x32Remainder (GetPseudoRandomNumber64 (), SlideSupport->ValidSlideCount, &Slide);
+    DivU64x32Remainder (GetPseudoRandomNumber64 (), SlideSupport->ValidSlideCount - 0x20, &Slide);
   } while (Slide == 0);
 
   return SlideSupport->ValidSlides[Slide];
