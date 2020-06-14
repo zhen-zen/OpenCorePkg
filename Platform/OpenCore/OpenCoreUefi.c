@@ -364,6 +364,7 @@ OcLoadBooterUefiSupport (
 
   AbcSettings.AvoidRuntimeDefrag     = Config->Booter.Quirks.AvoidRuntimeDefrag;
   AbcSettings.DevirtualiseMmio       = Config->Booter.Quirks.DevirtualiseMmio;
+  AbcSettings.DevirtualiseSGX        = Config->Booter.Quirks.DevirtualiseSGX;
   AbcSettings.DisableSingleUser      = Config->Booter.Quirks.DisableSingleUser;
   AbcSettings.DisableVariableWrite   = Config->Booter.Quirks.DisableVariableWrite;
   AbcSettings.ProtectSecureBoot      = Config->Booter.Quirks.ProtectSecureBoot;
