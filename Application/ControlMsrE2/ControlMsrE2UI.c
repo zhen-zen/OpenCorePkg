@@ -14,8 +14,6 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 #include "ControlMsrE2.h"
 
-UINTN           Flags;
-
 /*
   Read up to length -1 Characters from keyboard.
   CR will exit
