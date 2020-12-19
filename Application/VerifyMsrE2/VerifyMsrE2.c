@@ -18,6 +18,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #include <Library/UefiLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/OcMiscLib.h>
+#include <Library/OcDebugLogLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiRuntimeServicesTableLib.h>
 #include <Library/UefiApplicationEntryPoint.h>
@@ -85,7 +86,7 @@ UefiMain (
   }
 
   Print (L"Done checking MSR 0xE2 register, compare the values printed!\n");
-
+  DEBUG ((DEBUG_WARN, "Could not allocate memory. Function not available.\n"));
   if (mHasLockedCores && mHasUnlockedCores) {
     Print (L"This firmware has BORKED MSR 0xE2 register!\n");
     Print (L"Some cores are locked, some are not!!!\n");

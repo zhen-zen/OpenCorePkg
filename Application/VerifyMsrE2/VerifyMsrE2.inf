@@ -44,6 +44,11 @@
   gEfiMpServiceProtocolGuid                 ## CONSUMES
 
 [LibraryClasses]
+  BaseLib
+  DebugLib
+  OcMiscLib
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
   OcConsoleControlEntryModeGenericLib
   UefiApplicationEntryPoint
   UefiLib
