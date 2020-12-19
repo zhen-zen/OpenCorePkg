@@ -86,7 +86,7 @@ UefiMain (
   }
 
   Print (L"Done checking MSR 0xE2 register, compare the values printed!\n");
-  DEBUG ((DEBUG_WARN, "Could not allocate memory. Function not available.\n"));
+  DEBUG ((DEBUG_ERROR, "Could not allocate memory. Function not available.\n"));
   if (mHasLockedCores && mHasUnlockedCores) {
     Print (L"This firmware has BORKED MSR 0xE2 register!\n");
     Print (L"Some cores are locked, some are not!!!\n");
