@@ -32,7 +32,13 @@ jobs:
         run: |
           eval "$(/usr/libexec/path_helper)"
           sudo tlmgr update --self
-          tlmgr install titlesec fmtcount latexdiff zref
+          sudo tlmgr install titlesec fmtcount latexdiff zref
 
       - name: Build Docs
         run: Docs/BuildDocs.tool
+
+      - name: Upload Docs
+        uses: actions/upload-artifact@v2
+        with:
+          name: Docs
+          path: Docs
