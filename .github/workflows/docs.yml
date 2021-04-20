@@ -25,6 +25,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Check for update
+        run: git whatchanged --since="1 day ago" Docs
+
       - name: Install BasicTex
         run: brew install --cask basictex
 
@@ -35,7 +38,9 @@ jobs:
           sudo tlmgr install titlesec fmtcount latexdiff zref
 
       - name: Build Docs
-        run: Docs/BuildDocs.tool
+        run: |
+          eval "$(/usr/libexec/path_helper)"
+          Docs/BuildDocs.tool
 
       - name: Upload Docs
         uses: actions/upload-artifact@v2
