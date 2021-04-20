@@ -30,6 +30,7 @@ jobs:
 
       - name: Install Packages
         run: |
+          eval "$(/usr/libexec/path_helper)"
           sudo tlmgr update --self
           tlmgr install titlesec fmtcount latexdiff zref
 
