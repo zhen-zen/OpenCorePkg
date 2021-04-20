@@ -33,6 +33,7 @@ jobs:
         if: steps.history.outputs.value != ''
         run: |
           brew install --cask basictex
+          eval "$(/usr/libexec/path_helper)"
           sudo tlmgr update --self
           sudo tlmgr install datetime fmtcount latexdiff titlesec zref
 
