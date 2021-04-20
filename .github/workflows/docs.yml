@@ -27,7 +27,7 @@ jobs:
 
       - name: Check for update
         id: history
-        run: echo "::set-output name=value::$(git whatchanged --since="1 day ago" Docs)"
+        run: echo "::set-output name=value::$(git whatchanged --since="1 day ago" Docs/Configuration.tex)"
 
       - name: Install BasicTex
         if: steps.history.outputs.value != ''
@@ -42,6 +42,9 @@ jobs:
         run: |
           eval "$(/usr/libexec/path_helper)"
           Docs/BuildDocs.tool
+
+      - name: Check status
+        run: git status
 
       - name: Upload Docs
         if: steps.history.outputs.value != ''
