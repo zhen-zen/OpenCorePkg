@@ -27,7 +27,7 @@ jobs:
 
       - name: Check for update
         id: history
-        run: git whatchanged --since="1 day ago" Docs
+        run: echo "::set-output name=value::$(git whatchanged --since="1 day ago" Docs)"
 
       - name: Install BasicTex
         if: steps.history.outputs.value != ''
